@@ -22,16 +22,16 @@ You can choose whatever name you'd like for the environment. In this example, we
 .. command-block::
    :no-exec:
 
-   conda create -n qiime2 -c qiime2 python=3.5 qiime q2cli
+   conda create -n qiime2-2.0.6 --override-channels -c qiime2 -c defaults python=3.5 qiime=2.0.6 q2cli=0.0.6
 
-``-n qiime2`` specifies the name of the environment, and ``-c qiime2`` specifies the channel to search for packages.
+``-n qiime2-2.0.6`` specifies the name of the environment, and ``-c qiime2`` specifies the channel to search for packages.
 
 Now that you have an environment, activate it using the environment's name:
 
 .. command-block::
    :no-exec:
 
-   source activate qiime2
+   source activate qiime2-2.0.6
 
 To deactivate an environment, run ``source deactivate``.
 
@@ -57,6 +57,7 @@ If you are using Bash as your shell (you probably are), you can enable tab compl
 Run this command to enable tab completion:
 
 .. command-block::
+   :no-exec:
 
    source tab-qiime
 
@@ -81,8 +82,8 @@ Out of the box, installing the QIIME 2 framework and command-line interface does
 .. command-block::
    :no-exec:
 
-   conda install matplotlib==1.5.1
-   conda install -c qiime2 q2-types q2-feature-table
+   conda install --override-channels -c defaults matplotlib==1.5.1
+   conda install --override-channels -c qiime2 -c defaults q2-types=0.0.6 q2-feature-table=0.0.6
 
 Now execute the ``qiime info`` command again:
 
@@ -105,7 +106,7 @@ Install the ``q2-diversity`` and ``q2-emperor`` plugins as well:
 .. command-block::
    :no-exec:
 
-   conda install -c qiime2 -c conda-forge q2-diversity q2-emperor
+   conda install --override-channels -c qiime2 -c conda-forge -c defaults q2-diversity=0.0.6 q2-emperor=0.0.6
 
 You'll now have four plugins installed:
 
@@ -126,9 +127,10 @@ Let's wrap up by installing several more plugins used in the tutorials.
 .. command-block::
    :no-exec:
 
-   conda install -c bioconda -c r bioconductor-dada2 mafft
-   conda install -c biocore fasttree
-   conda install -c qiime2 q2-demux q2-alignment q2-phylogeny q2-dada2 q2-composition q2-taxa q2-feature-classifier
+   conda install --override-channels -c r -c defaults r
+   conda install --override-channels -c bioconda -c r -c defaults bioconductor-dada2 mafft
+   conda install --override-channel -c biocore -c defaults fasttree
+   conda install --override-channel -c qiime2 -c defaults q2-demux=0.0.6 q2-alignment=0.0.6 q2-phylogeny=0.0.6 q2-dada2=0.0.6 q2-composition=0.0.6 q2-taxa=0.0.6 q2-feature-classifier=0.0.6
 
 Now that you have some plugins installed and have explored the command-line interface a bit, you're ready to analyze microbiome data! Check out the :doc:`QIIME 2 tutorials <../tutorials/index>` for analyses of tutorial datasets.
 

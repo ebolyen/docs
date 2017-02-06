@@ -42,7 +42,7 @@ Next we import the raw data into QIIME 2 Artifacts. Note that we will load the a
     qiime tools import \
       --type FeatureData[Taxonomy] \
       --input-path 85_otu_taxonomy.txt \
-      --output-path ref-taxonomy.qza \
+      --output-path ref-taxonomy.qza
 
 
 Extract reference reads
